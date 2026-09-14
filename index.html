@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{BUSINESS_NAME}} | {{PRIMARY_SERVICE}} in {{SERVICE_CITY}}, {{SERVICE_STATE}}</title>
+<meta name="description" content="{{BUSINESS_NAME}} provides {{PRIMARY_SERVICE}} across {{SERVICE_CITY}}, {{SERVICE_STATE}} and the surrounding area. {{TAGLINE}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">{{BUSINESS_INITIALS}}</span>
+      {{BUSINESS_NAME}}
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="service-area.html">Service Area</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:{{BUSINESS_PHONE_TEL}}" class="btn btn-ghost btn-small">{{BUSINESS_PHONE}}</a>
+      <a href="#" class="btn btn-primary btn-small" data-chat-open>Get a Free Quote</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav container" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="service-area.html">Service Area</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <span class="hero__eyebrow">{{SERVICE_CITY}}, {{SERVICE_STATE}} · Licensed &amp; Insured</span>
+        <h1>{{HERO_HEADLINE}}</h1>
+        <p class="lede">{{HERO_SUBHEAD}}</p>
+        <div class="hero__actions">
+          <a href="#" class="btn btn-primary" data-chat-open>Get a Free Quote</a>
+          <a href="tel:{{BUSINESS_PHONE_TEL}}" class="btn btn-on-dark">Call {{BUSINESS_PHONE}}</a>
+        </div>
+        <div class="hero__stats">
+          <div><strong>{{YEARS_IN_BUSINESS}}+</strong><span>Years in business</span></div>
+          <div><strong>{{JOBS_COMPLETED}}+</strong><span>Jobs completed</span></div>
+          <div><strong>{{SERVICE_AREA_COUNT}}</strong><span>Towns served</span></div>
+        </div>
+      </div>
+      <div class="hero__panel">
+        <img src="{{HERO_IMAGE_URL}}" alt="Recent {{PRIMARY_SERVICE}} project by {{BUSINESS_NAME}}">
+        <p style="color:#cbd0d6; margin:0;">{{HERO_IMAGE_CAPTION}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">What we do</span>
+        <h2>{{SERVICES_SECTION_HEADLINE}}</h2>
+      </div>
+      <div class="list-plain">
+        <div class="service-row">
+          <span class="num">01</span>
+          <div>
+            <h3>{{SERVICE_1_NAME}}</h3>
+            <p>{{SERVICE_1_DESC}}</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="num">02</span>
+          <div>
+            <h3>{{SERVICE_2_NAME}}</h3>
+            <p>{{SERVICE_2_DESC}}</p>
+          </div>
+        </div>
+        <div class="service-row">
+          <span class="num">03</span>
+          <div>
+            <h3>{{SERVICE_3_NAME}}</h3>
+            <p>{{SERVICE_3_DESC}}</p>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:1.75rem;"><a href="services.html" class="btn btn-ghost btn-small">See all services</a></p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container grid grid-3">
+      <div>
+        <h3>Licensed &amp; insured</h3>
+        <p>{{BUSINESS_NAME}} is fully licensed (#{{LICENSE_NUMBER}}) and insured for every job we take on.</p>
+      </div>
+      <div>
+        <h3>Straight answers</h3>
+        <p>Clear estimates before we start and a single point of contact from quote to final walkthrough.</p>
+      </div>
+      <div>
+        <h3>Local crews</h3>
+        <p>We live and work in {{SERVICE_CITY}} — no subcontracted strangers showing up at your door.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid grid-2" style="align-items:center;">
+      <div>
+        <span class="kicker">Service area</span>
+        <h2>Serving {{SERVICE_CITY}} and {{SERVICE_AREA_COUNT}} nearby communities</h2>
+        <p>From {{SERVICE_AREA_EXAMPLE_1}} to {{SERVICE_AREA_EXAMPLE_2}}, our crews are on the road every day. Check the full list of towns we cover.</p>
+        <a href="service-area.html" class="btn btn-ghost">View full service area</a>
+      </div>
+      <div class="card">
+        <ul class="zone-list" style="columns:2;">
+          <li>{{SERVICE_AREA_EXAMPLE_1}}</li>
+          <li>{{SERVICE_AREA_EXAMPLE_2}}</li>
+          <li>{{SERVICE_AREA_EXAMPLE_3}}</li>
+          <li>{{SERVICE_AREA_EXAMPLE_4}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="container" style="text-align:center; padding-block:1rem;">
+      <h2 style="max-width:28ch; margin-inline:auto;">{{CTA_HEADLINE}}</h2>
+      <p style="max-width:48ch; margin-inline:auto; color:#cbd0d6;">{{CTA_SUBHEAD}}</p>
+      <div class="hero__actions" style="justify-content:center;">
+        <a href="#" class="btn btn-primary" data-chat-open>Get a Free Quote</a>
+        <a href="tel:{{BUSINESS_PHONE_TEL}}" class="btn btn-on-dark">Call {{BUSINESS_PHONE}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <h4>{{BUSINESS_NAME}}</h4>
+        <p style="color:#b9bfc6; max-width:32ch;">{{BUSINESS_ADDRESS}}</p>
+        <a href="tel:{{BUSINESS_PHONE_TEL}}">{{BUSINESS_PHONE}}</a>
+        <a href="mailto:{{BUSINESS_EMAIL}}">{{BUSINESS_EMAIL}}</a>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="service-area.html">Service Area</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#" data-chat-open>Contact us</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year"></span> {{BUSINESS_NAME}}. All rights reserved.</span>
+      <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

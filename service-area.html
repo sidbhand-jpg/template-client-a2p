@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Area | {{BUSINESS_NAME}}</title>
+<meta name="description" content="Towns and neighborhoods served by {{BUSINESS_NAME}} near {{SERVICE_CITY}}, {{SERVICE_STATE}}.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a href="index.html" class="brand">
+      <span class="brand__mark">{{BUSINESS_INITIALS}}</span>
+      {{BUSINESS_NAME}}
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="service-area.html" aria-current="page">Service Area</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:{{BUSINESS_PHONE_TEL}}" class="btn btn-ghost btn-small">{{BUSINESS_PHONE}}</a>
+      <a href="#" class="btn btn-primary btn-small" data-chat-open>Get a Free Quote</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav container" aria-label="Mobile">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="service-area.html">Service Area</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" style="padding-block:0;">
+    <div class="container" style="padding-block:4rem 3rem;">
+      <span class="hero__eyebrow">Service area</span>
+      <h1 style="max-width:22ch;">Serving {{SERVICE_CITY}} and {{SERVICE_AREA_COUNT}} surrounding communities</h1>
+      <p class="lede">{{SERVICE_AREA_SUBHEAD}}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid grid-2" style="align-items:start;">
+      <div>
+        <span class="kicker">Where we work</span>
+        <h2>Full coverage list</h2>
+        <p>Don't see your town below? Reach out — we often take jobs just outside our usual radius.</p>
+        <a href="#" class="btn btn-primary" data-chat-open>Check my address</a>
+      </div>
+      <div class="card">
+        <ul class="zone-list">
+          <li>{{SERVICE_AREA_TOWN_1}}</li>
+          <li>{{SERVICE_AREA_TOWN_2}}</li>
+          <li>{{SERVICE_AREA_TOWN_3}}</li>
+          <li>{{SERVICE_AREA_TOWN_4}}</li>
+          <li>{{SERVICE_AREA_TOWN_5}}</li>
+          <li>{{SERVICE_AREA_TOWN_6}}</li>
+          <li>{{SERVICE_AREA_TOWN_7}}</li>
+          <li>{{SERVICE_AREA_TOWN_8}}</li>
+          <li>{{SERVICE_AREA_TOWN_9}}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="container grid grid-3">
+      <div>
+        <h3>Response time</h3>
+        <p>Most {{SERVICE_CITY}}-area requests get a callback within {{RESPONSE_TIME}}.</p>
+      </div>
+      <div>
+        <h3>Travel radius</h3>
+        <p>We regularly work within {{TRAVEL_RADIUS}} of {{SERVICE_CITY}}, {{SERVICE_STATE}}.</p>
+      </div>
+      <div>
+        <h3>Local crews only</h3>
+        <p>Jobs in our service area are staffed by our own crews — never a subcontracted stranger.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-dark">
+    <div class="container" style="text-align:center; padding-block:1rem;">
+      <h2 style="max-width:28ch; margin-inline:auto;">Confirm we cover your address</h2>
+      <div class="hero__actions" style="justify-content:center;">
+        <a href="#" class="btn btn-primary" data-chat-open>Get a Free Quote</a>
+        <a href="tel:{{BUSINESS_PHONE_TEL}}" class="btn btn-on-dark">Call {{BUSINESS_PHONE}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <h4>{{BUSINESS_NAME}}</h4>
+        <p style="color:#b9bfc6; max-width:32ch;">{{BUSINESS_ADDRESS}}</p>
+        <a href="tel:{{BUSINESS_PHONE_TEL}}">{{BUSINESS_PHONE}}</a>
+        <a href="mailto:{{BUSINESS_EMAIL}}">{{BUSINESS_EMAIL}}</a>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="service-area.html">Service Area</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="#" data-chat-open>Contact us</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year"></span> {{BUSINESS_NAME}}. All rights reserved.</span>
+      <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
