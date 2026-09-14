@@ -523,6 +523,14 @@ section.tight { padding-block: 2.5rem; }
 }
 .chat-widget.is-open { display: flex; }
 
+.chat-widget > form {
+  min-height: 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .chat-widget__header {
   background: var(--ink);
   color: #fff;
