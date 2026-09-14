@@ -518,6 +518,7 @@ section.tight { padding-block: 2.5rem; }
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
+  min-height: 0;
 }
 .chat-widget.is-open { display: flex; }
 
@@ -560,7 +561,10 @@ section.tight { padding-block: 2.5rem; }
 
 .chat-widget__body {
   padding: 1.1rem;
+  min-height: 0;
+  flex: 1 1 auto;
   overflow-y: auto;
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -641,6 +645,7 @@ section.tight { padding-block: 2.5rem; }
 .chat-widget__footer {
   padding: 0.9rem 1.1rem 1.1rem;
   border-top: 1px solid var(--line);
+  flex: 0 0 auto;
 }
 .chat-widget__send {
   width: 100%;
