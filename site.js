@@ -8,6 +8,10 @@
 (function () {
   "use strict";
 
+  /* Add the public endpoint that receives chat submissions. Leave blank for
+     the local demo success state. Never put private API keys here. */
+  var WEBHOOK_URL = "";
+
   /* ---------- Mobile nav ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     var toggle = document.querySelector(".nav-toggle");
@@ -44,6 +48,16 @@
     '      <p class="chat-widget__intro">Send us your number and a quick note — a member of the {{BUSINESS_NAME}} team will text or call you back.</p>',
 
     '      <div class="field">',
+    '        <label for="chatName">Name</label>',
+    '        <input type="text" id="chatName" name="name" placeholder="Your name" autocomplete="name" required>',
+    '      </div>',
+
+    '      <div class="field">',
+    '        <label for="chatEmail">Email</label>',
+    '        <input type="email" id="chatEmail" name="email" placeholder="you@example.com" autocomplete="email" required>',
+    '      </div>',
+
+    '      <div class="field">',
     '        <label for="chatPhone">Phone number</label>',
     '        <div class="phone-field">',
     '          <span class="phone-field__country">🇺🇸 +1</span>',
@@ -65,6 +79,7 @@
     '        <input type="checkbox" name="consent_promotional">',
     '        <span>By submitting, you authorize {{BUSINESS_NAME}} to text/call the number above for promotional messages, possibly using automated means. Msg/data rates apply, msg frequency varies. Consent is not a condition of purchase. See <a href="terms.html" target="_blank" rel="noopener">terms</a> and <a href="privacy.html" target="_blank" rel="noopener">privacy policy</a>. Text HELP for help and STOP to unsubscribe.</span>',
     '      </label>',
+    '      <p class="chat-widget__error" id="chatWidgetError" role="alert" hidden>We could not send your message. Please try again.</p>',
     '    </div>',
 
     '    <div class="chat-widget__footer">',
@@ -94,13 +109,15 @@
     var closeBtn = document.getElementById("chatWidgetClose");
     var form = document.getElementById("chatWidgetForm");
     var success = document.getElementById("chatWidgetSuccess");
+    var error = document.getElementById("chatWidgetError");
+    var submitButton = form.querySelector("button[type=submit]");
 
     function openWidget() {
       widget.classList.add("is-open");
       widget.setAttribute("aria-hidden", "false");
       launcher.setAttribute("aria-expanded", "true");
-      var phoneInput = document.getElementById("chatPhone");
-      if (phoneInput) phoneInput.focus();
+      var nameInput = document.getElementById("chatName");
+      if (nameInput) nameInput.focus();
     }
 
     function closeWidget() {
@@ -133,10 +150,31 @@
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      // Replace with your CRM / GHL webhook endpoint.
-      // fetch("https://YOUR-ENDPOINT", { method: "POST", body: new FormData(form) });
-      form.style.display = "none";
-      success.classList.add("is-shown");
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      error.hidden = true;
+      submitButton.disabled = true;
+
+      var submission = WEBHOOK_URL
+        ? fetch(WEBHOOK_URL, {
+            method: "POST",
+            body: new FormData(form)
+          }).then(function (response) {
+            if (!response.ok) throw new Error("Webhook returned " + response.status);
+          })
+        : Promise.resolve();
+
+      submission.then(function () {
+        form.style.display = "none";
+        success.classList.add("is-shown");
+      }).catch(function (submitError) {
+        console.error("Chat webhook submission failed", submitError);
+        error.hidden = false;
+        submitButton.disabled = false;
+      });
     });
   }
 
